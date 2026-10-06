@@ -50,10 +50,10 @@ spec:
       name: db-pvc
   volumes:
   - hostPath:
-      path: ../../mnt/c/Users/username/exercise/app
+      path: ../../mnt/c/Users/fujiwara/exercise/app
       type: Directory
     name: app-pvc
   - hostPath:
-      path: ../../mnt/c/Users/username/exercise/db
+      path: ../../mnt/c/Users/fujiwara/exercise/db
       type: Directory
     name: db-pvc
