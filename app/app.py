@@ -20,3 +20,11 @@ def rand():
 @app.route("/template") # ここから追加
 def template():
     return render_template("template.html", greeting="hello", title="あいさつ")
+
+@app.route("/template_list") # ここから追加
+def template_list():
+    students = [] # 学生番号を入れるリスト（空っぽ）
+    for n in range(1, 101): # students に 2xG2001〜100 を追加
+        students.append(f"2xG2{n:03d}")
+    return render_template("template_list.html", students=students,
+title="学生番号リスト")
