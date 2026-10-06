@@ -1,20 +1,22 @@
-import random
-from flask import Flask
+from random import random
+
+from flask import Flask, render_template # この行を修正
 
 app = Flask(__name__)
 
 
+@app.route("/")
+def index():
+    return "Hello!"
+
+
 @app.route("/rand")
 def rand():
-    val = random()  # または random()
+# チェックポイント 3 でこの関数は書き換わっているはず
+    r = random()
+    return f"{r=:.3f}"
 
-    # 値に応じたラベルの判定（※閾値の条件は課題の指定に合わせてください）
-    if val < 0.3:
-        label = "smaller"
-    elif val <= 0.7:
-        label = "medium"
-    else:
-        label = "larger"
 
-    # フォーマットに合わせて返却
-    return f"r={val:.3f} {label}"
+@app.route("/template") # ここから追加
+def template():
+    return render_template("template.html", greeting="hello", title="あいさつ")
